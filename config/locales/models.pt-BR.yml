@@ -1,0 +1,23 @@
+pt-BR:
+  simple_form:
+    labels:
+      customer:
+        name: "Nome"
+        code: "Código"
+        customer_type_id: "Grupo"
+        document: "Documento"
+        address_line: "Endereço"
+        address_neighborhood: "Bairro"
+        address_city: "Cidade"
+        address_number: "Número"
+        address_zipcode: "CEP"
+        address_state: "Estado"
+        sla_default: "SLA padrão (opcional)"
+  activerecord:
+    models:
+      user: "Conta"
+    attributes:
+      user:
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação da senha"
