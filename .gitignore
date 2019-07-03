@@ -123,7 +123,7 @@ build/
 .ruby-gemset
 
 .DS_store
-config/database.yml
+# config/database.yml
 
 # Windows image file caches
 Thumbs.db
