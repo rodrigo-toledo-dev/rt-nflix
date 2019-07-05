@@ -125,6 +125,8 @@ GEM
     font-awesome-sass (5.8.1)
       sassc (>= 1.11)
     formatador (0.2.5)
+    friendly_id (5.2.5)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     google-api-client (0.30.4)
@@ -448,6 +450,7 @@ DEPENDENCIES
   factory_bot_rails
   faker!
   font-awesome-sass (~> 5.8.1)
+  friendly_id (~> 5.2.4)
   google-cloud-storage (~> 1.8)
   guard
   guard-bundler

@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
   validates :name, :birthday, presence: true
+  after_create :build_initial_profiles
+
+  has_many :profiles, dependent: :destroy
   
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -27,5 +30,14 @@ class User < ApplicationRecord
         end
       end
     end
+  end
+
+  protected
+
+  def build_initial_profiles
+    4.times.each do |t|
+      self.profiles.build(name: "Profile #{t+1}").save
+    end
+    true
   end
 end
