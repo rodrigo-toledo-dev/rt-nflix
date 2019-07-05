@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -41,6 +41,12 @@ gem 'omniauth-facebook'
 gem 'haml'
 gem 'haml-rails', '~> 2.0'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'ransack'
+gem "google-cloud-storage", "~> 1.8", require: false
+
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
+gem 'font-awesome-sass', '~> 5.8.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.8'

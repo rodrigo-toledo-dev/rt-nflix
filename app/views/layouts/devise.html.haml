@@ -20,23 +20,13 @@
         #navbarResponsive.collapse.navbar-collapse
 
           %ul.navbar-nav.ml-auto
-            %li.nav-item
-              = search_form_for @q do |f|
-                .input-group
-                  = f.search_field :name_cont, class: 'form-control ', placeholder: 'Procurando um filme?...'
-                  .input-group-append
-                    = f.submit 'Buscar', class: 'btn btn-outline-light'
-            = content_tag :li, class: "nav-item #{params[:controller] == "movies" ? 'active' : ''}" do
-              = link_to root_path, class: 'nav-link' do
-                = t('menu.movies')
-                = content_tag(:span, '(current)', class: 'sr-only') if params[:controller] == "movies"
-            %li.nav-item
-              = link_to t('menu.contact'), 'mailto:rodrigo@rtoledo.inf.br', class: 'nav-link'
-            %li.nav-item
-              = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
+            = render partial: 'devise/shared/links_at_header'
     #master_container.container
       = flash_messages
-      = yield
+      %header.jumbotron
+        %h1.display-3 Bem vindo(a) a #{t('application_name')}
+        %p.lead Chegou a hora de organizar o que você mais quer ver! Seus Filmes nunca ficarão tão em dia...
+        = yield
     %footer.py-5.bg-dark
       .container
         %p.m-0.text-center.text-white

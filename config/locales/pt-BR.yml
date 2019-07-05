@@ -2,6 +2,8 @@ pt-BR:
   application_name: JERA Flix
   actions:
     save: 'Salvar'
+    sign_in: 'Acessar'
+    sign_up: 'Criar conta'
   activerecord:
     errors:
       messages:
