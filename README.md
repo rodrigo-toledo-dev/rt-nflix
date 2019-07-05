@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Development informations
 
-Things you may want to cover:
+Run server offline with integration of facebook
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`rails s -b 'ssl://localhost:3000?key=config/credentials/localhost.key&cert=config/credentials/localhost.crt'`
