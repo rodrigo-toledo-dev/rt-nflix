@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
+gem 'omniauth-facebook'
 gem 'haml'
 gem 'haml-rails', '~> 2.0'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
