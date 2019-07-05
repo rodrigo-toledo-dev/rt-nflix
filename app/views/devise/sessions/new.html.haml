@@ -2,11 +2,13 @@
   .row
     .col-sm-12
       .form-group.row
-        =f.label :email, class: 'col-sm-4 col-form-label'
+        .col-sm-4
+          =f.label :email, class: 'col-form-label'
         .col-sm-8
-          =f.text_field :email, class: 'form-control', placeholder: 'Nome do quadro...'
+          =f.email_field :email, class: 'form-control', placeholder: 'Email do usuário...'
       .form-group.row
-        =f.label :password, class: 'col-sm-4 col-form-label'
+        .col-sm-4
+          =f.label :password, class: 'col-form-label'
         .col-sm-8
           =f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Senha...'
   .row

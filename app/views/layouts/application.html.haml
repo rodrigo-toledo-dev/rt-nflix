@@ -1,12 +1,43 @@
 !!!
-%html
+%html{lang: "en"}
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title JeraFlix
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}/
+    %title= t('application_name')
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = flash_messages
-    = yield
+
+    / Navigation
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      .container
+        = link_to t('application_name'), root_path, class: 'navbar-brand'
+        %button.navbar-toggler{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", type: "button"}
+          %span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse
+
+          %ul.navbar-nav.ml-auto
+            %li.nav-item
+              = search_form_for @q do |f|
+                .input-group
+                  = f.search_field :name_cont, class: 'form-control ', placeholder: 'Procurando um filme?...'
+                  .input-group-append
+                    = f.submit 'Buscar', class: 'btn btn-outline-light'
+            = content_tag :li, class: "nav-item #{params[:controller] == "movies" ? 'active' : ''}" do
+              = link_to root_path, class: 'nav-link' do
+                = t('menu.movies')
+                = content_tag(:span, '(current)', class: 'sr-only') if params[:controller] == "movies"
+            %li.nav-item
+              = link_to t('menu.contact'), 'mailto:rodrigo@rtoledo.inf.br', class: 'nav-link'
+            %li.nav-item
+              = link_to t('menu.logout'), destroy_user_session_path, method: :delete, class: 'nav-link'
+    #master_container.container
+      = flash_messages
+      = yield
+    %footer.py-5.bg-dark
+      .container
+        %p.m-0.text-center.text-white
+          ="Copyright © #{t('application_name')} #{Date.today.year}"

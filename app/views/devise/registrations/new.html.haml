@@ -4,17 +4,20 @@
   .row
     .col-sm-12
       .form-group.row
-        =f.label :email, class: 'col-sm-4 col-form-label'
+        .col-sm-4
+          =f.label :email, class: 'col-form-label'
         .col-sm-8
           =f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", class: 'form-control'
       .form-group.row
-        =f.label :password, class: 'col-sm-4 col-form-label'
+        .col-sm-4
+          =f.label :password, class: 'col-form-label'
         .col-sm-8
           =f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Senha...'
       .form-group.row
-        =f.label :password_confirmation, class: 'col-sm-4 col-form-label'
+        .col-sm-4
+          =f.label :password_confirmation, class: 'col-form-label'
         .col-sm-8
-          =f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Senha...'
+          =f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Confirmação da Senha...'
   .row
     .col-sm-12
       =f.submit t('actions.sign_up'), class: 'btn btn-secondary btn-sm'
