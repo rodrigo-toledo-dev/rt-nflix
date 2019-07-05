@@ -10,6 +10,16 @@
           =f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", class: 'form-control'
       .form-group.row
         .col-sm-4
+          =f.label :name, class: 'col-form-label'
+        .col-sm-8
+          =f.text_field :name, class: 'form-control', class: 'form-control'
+      .form-group.row
+        .col-sm-4
+          =f.label :birthday, class: 'col-form-label'
+        .col-sm-8
+          =f.date_field :birthday, class: 'form-control', class: 'form-control'
+      .form-group.row
+        .col-sm-4
           =f.label :password, class: 'col-form-label'
         .col-sm-8
           =f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Senha...'
