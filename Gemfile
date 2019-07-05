@@ -43,6 +43,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'ransack'
 gem "google-cloud-storage", "~> 1.8", require: false
+gem 'friendly_id', '~> 5.2.4'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
