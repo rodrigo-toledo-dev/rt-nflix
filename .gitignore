@@ -142,3 +142,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 /storage
+/templates/startbootstrap-agency-gh-pages
+/templates/startbootstrap-freelancer-gh-pages
+/templates/startbootstrap-heroic-features-gh-pages
+/templates/startbootstrap-modern-business-gh-pages
