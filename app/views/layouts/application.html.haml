@@ -56,13 +56,13 @@
             %h2.section-heading.text-uppercase Perfils
             %h3.section-subheading.text-muted Uma lista de filmes personalizada para cada perfil, assim gaste menos tempo selecionando o que gostaria de assistir.
         .row
-          - current_user.profiles.each do |profile|
+          - current_user.profiles.each_with_index do |profile, index|
             .col-md-6.portfolio-item
               = link_to "##{profile.slug}", class: 'portfolio-link', data: {toggle: 'modal'} do
                 .portfolio-hover
                   .portfolio-hover-content
                     %i.fas.fa-plus.fa-3x
-                = image_tag 'portfolio/01-thumbnail.jpg', class: 'img-fluid'
+                = image_tag "profile-image-#{index}.png", class: 'img-fluid'
               .portfolio-caption
                 %h4= profile.name
     / Services
@@ -272,7 +272,7 @@
                 %a{href: "#"} Terms of Use
     / Portfolio Modals
     
-    - current_user.profiles.each do |profile|
+    - current_user.profiles.each_with_index do |profile, index|
       .portfolio-modal.modal.fade{"aria-hidden" => "true", id: "#{profile.slug}", role: "dialog", tabindex: "-1"}
         .modal-dialog
           .modal-content
@@ -287,7 +287,7 @@
                       Project Details Go Here
                     %h2.text-uppercase= profile.name
                     %p.item-intro.text-muted Lorem ipsum dolor sit amet consectetur.
-                    = image_tag 'portfolio/01-full.jpg', class: 'mx-auto img-fluid d-block'
+                    = image_tag "profile-image-#{index}.png", class: 'mx-auto img-fluid d-block'
                     %p Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!
                     %ul.list-inline
                       %li Date: January 2017
