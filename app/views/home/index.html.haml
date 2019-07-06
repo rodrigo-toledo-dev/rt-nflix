@@ -19,7 +19,7 @@
             .portfolio-hover
               .portfolio-hover-content
                 %i.fas.fa-plus.fa-3x
-            = image_tag "profile-image-#{index}.png", class: 'img-fluid'
+            %img.img-fluid= image_tag "profile-image-#{index}.png", class: 'img-fluid'
           .portfolio-caption
             %h4= profile.name
 / Services
@@ -31,9 +31,9 @@
         %p.text-muted Cada Perfil terá sugestões de Filmes a partir das Categorias adicionadas a ele.
         %p.text-muted Escolha um dos Perfis e clique em Adicionar, assim os Filmes e Sugestões estarão no Perfil escolhido.
     .row.text-center
-      - @genres.each do |genre|
+      - @genres['genres'].each do |genre|
         .col-md-4.mb-10
-          %h4.service-heading=genre.name
+          %h4.service-heading=genre['name']
           %p
             %select.form-control
               %option Escolha um Perfil para esta Categoria
@@ -46,47 +46,21 @@
   .container
     .row
       .col-lg-12.text-center
-        %h2.section-heading.text-uppercase Novidades
-        %h3.section-subheading.text-muted Novidades, lançamentos e sugestões para você assistir
+        %h2.section-heading.text-uppercase Lançamentos
+        %h3.section-subheading.text-muted Lançamentos, novidades e sugestões para você assistir
     .row
       .col-lg-12
         %ul.timeline
-          %li
-            .timeline-image
-              = image_tag 'about/1.jpg', class: 'img-fluid rounded-circle'
-            .timeline-panel
-              .timeline-heading
-                %h4 2009-2011
-                %h4.subheading Our Humble Beginnings
-              .timeline-body
-                %p.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-          %li.timeline-inverted
-            .timeline-image
-              = image_tag 'about/2.jpg', class: 'img-fluid rounded-circle'
-            .timeline-panel
-              .timeline-heading
-                %h4 March 2011
-                %h4.subheading An Agency is Born
-              .timeline-body
-                %p.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-          %li
-            .timeline-image
-              = image_tag 'about/3.jpg', class: 'img-fluid rounded-circle'
-            .timeline-panel
-              .timeline-heading
-                %h4 December 2012
-                %h4.subheading Transition to Full Service
-              .timeline-body
-                %p.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
-          %li.timeline-inverted
-            .timeline-image
-              = image_tag 'about/4.jpg', class: 'img-fluid rounded-circle'
-            .timeline-panel
-              .timeline-heading
-                %h4 July 2014
-                %h4.subheading Phase Two Expansion
-              .timeline-body
-                %p.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+          - @popular_movies.each_with_index do |movie, index|
+            %li{class: "#{'timeline-inverted' if index.odd?}"}
+              .timeline-image
+                %img.img-fluid.rounded-circle.poster-image-size{src: "#{poster_image_url(movie.poster_path)}"}/
+              .timeline-panel
+                .timeline-heading
+                  %h4=movie.release_date
+                  %h4.subheading=movie.title
+                .timeline-body
+                  %p.text-muted{"data-toggle" => "tooltip", "title" => "#{movie.overview}"}= truncate(movie.overview, length: 100)
 / Contact
 %section#contact.page-section
   .container

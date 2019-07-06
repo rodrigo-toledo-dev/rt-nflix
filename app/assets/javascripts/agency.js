@@ -38,4 +38,8 @@ $( document ).on('turbolinks:load', function() {
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
+
+
+  // Jera Flix Codes
+  $('[data-toggle="tooltip"]').tooltip(); 
 })
