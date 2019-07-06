@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
   def build_initial_profiles
     4.times.each do |t|
-      self.profiles.build(name: "Profile #{t+1}").save
+      self.profiles.build(name: "Perfil #{t+1}").save
     end
     true
   end
