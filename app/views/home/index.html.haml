@@ -13,7 +13,7 @@
         %h2.section-heading.text-uppercase Perfils
         %h3.section-subheading.text-muted Uma lista de filmes personalizada para cada Perfil, assim gaste menos tempo escolhendo o que gostaria de assistir.
     .row
-      - current_user.profiles.each_with_index do |profile, index|
+      - @profiles.each_with_index do |profile, index|
         .col-md-6.portfolio-item
           = link_to "##{profile.slug}", class: 'portfolio-link', data: {toggle: 'modal'} do
             .portfolio-hover
@@ -31,24 +31,15 @@
         %p.text-muted Cada Perfil terá sugestões de Filmes a partir das Categorias adicionadas a ele.
         %p.text-muted Escolha um dos Perfis e clique em Adicionar, assim os Filmes e Sugestões estarão no Perfil escolhido.
     .row.text-center
-      .col-md-4
-        %h4.service-heading Ação
-        %p
-          %select.form-control
-            %option Escolha um Perfil para esta Categoria
-        %button.btn.btn-small.btn-secondary Clique para adicionar
-      .col-md-4
-        %h4.service-heading Humor
-        %p
-          %select.form-control
-            %option Escolha um Perfil para esta Categoria
-        %button.btn.btn-small.btn-secondary Clique para adicionar
-      .col-md-4
-        %h4.service-heading Românce 
-        %p
-          %select.form-control
-            %option Escolha um Perfil para esta Categoria
-        %button.btn.btn-small.btn-secondary Clique para adicionar
+      - @genres.each do |genre|
+        .col-md-4.mb-10
+          %h4.service-heading=genre.name
+          %p
+            %select.form-control
+              %option Escolha um Perfil para esta Categoria
+              - @profiles.each do |profile|
+                =content_tag :option, profile.name
+          %button.btn.btn-small.btn-secondary Clique para adicionar
 
 / About
 %section#about.page-section
@@ -139,7 +130,7 @@
 
 / Portfolio Modals
 
-- current_user.profiles.each_with_index do |profile, index|
+- @profiles.each_with_index do |profile, index|
   .portfolio-modal.modal.fade{"aria-hidden" => "true", id: "#{profile.slug}", role: "dialog", tabindex: "-1"}
     .modal-dialog
       .modal-content
