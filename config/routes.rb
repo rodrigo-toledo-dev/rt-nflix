@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genres/add_profile'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'terms', to: 'terms#index' 
   root to: 'home#index'

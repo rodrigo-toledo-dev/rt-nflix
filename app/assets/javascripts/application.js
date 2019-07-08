@@ -21,3 +21,4 @@
 //= require jqBootstrapValidation
 //= require contact_me
 //= require agency
+//= require home
