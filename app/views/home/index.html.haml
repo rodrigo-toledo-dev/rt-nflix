@@ -22,40 +22,7 @@
             %img.img-fluid= image_tag "profile-image-#{index}.png", class: 'img-fluid'
           .portfolio-caption
             %h4= profile.name
-/ Contact
-%section#contact.page-section
-  .container
-    .row
-      .col-lg-12.text-center
-        %h2.section-heading.text-uppercase Meus dados
-    .row
-      .col-lg-12
-        %form#contactForm{name: "sentMessage", novalidate: "novalidate"}
-          .row
-            .col-md-6
-              .form-group
-                %input#name.form-control{"data-validation-required-message" => "Please enter your name.", placeholder: "Nome *", required: "required", type: "text"}/
-                %p.help-block.text-danger
-              .form-group
-                %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", placeholder: "Seu email *", required: "required", type: "email"}/
-                %p.help-block.text-danger
-              .form-group
-                %input#birthday.form-control{"data-validation-required-message" => "Please enter your email address.", placeholder: "Data de Nascimento *", required: "required", type: "date"}/
-                %p.help-block.text-danger
-            .col-md-6
-              .form-group
-                %input#password.form-control{"data-validation-required-message" => "Please enter your phone number.", placeholder: "Sua senha *", required: "required", type: "password"}/
-                %p.help-block.text-danger
-              .form-group
-                %input#password_confirmation.form-control{"data-validation-required-message" => "Please enter your phone number.", placeholder: "Confirme sua senha *", required: "required", type: "password"}/
-                %p.help-block.text-danger
-              .form-group
-                %input#current_password.form-control{"data-validation-required-message" => "Please enter your phone number.", placeholder: "Senha atual *", required: "required", type: "password"}/
-                %p.help-block.text-danger
-            .clearfix
-            .col-lg-12.text-center
-              #success
-              %button#sendMessageButton.btn.btn-primary.btn-xl.text-uppercase{type: "submit"} Atualizar
+
 / Services
 %section#services.page-section
   .container
@@ -111,6 +78,42 @@
             %p.text-muted
               Média de votos
               ="#{movie.vote_average} (total: #{movie.vote_count})"
+
+/ Contact
+%section#contact.page-section
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2.section-heading.text-uppercase Meus dados
+    .row
+      .col-lg-12
+        %form#contactForm{name: "sentMessage", novalidate: "novalidate"}
+          .row
+            .col-md-6
+              .form-group
+                %input#name.form-control{"data-validation-required-message" => "Please enter your name.", placeholder: "Nome *", required: "required", type: "text"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", placeholder: "Seu email *", required: "required", type: "email"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#birthday.form-control{"data-validation-required-message" => "Please enter your email address.", placeholder: "Data de Nascimento *", required: "required", type: "date"}/
+                %p.help-block.text-danger
+            .col-md-6
+              .form-group
+                %input#password.form-control{"data-validation-required-message" => "Please enter your phone number.", placeholder: "Sua senha *", required: "required", type: "password"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#password_confirmation.form-control{"data-validation-required-message" => "Please enter your phone number.", placeholder: "Confirme sua senha *", required: "required", type: "password"}/
+                %p.help-block.text-danger
+              .form-group
+                %input#current_password.form-control{"data-validation-required-message" => "Please enter your phone number.", placeholder: "Senha atual *", required: "required", type: "password"}/
+                %p.help-block.text-danger
+            .clearfix
+            .col-lg-12.text-center
+              #success
+              %button#sendMessageButton.btn.btn-primary.btn-xl.text-uppercase{type: "submit"} Atualizar
+
 / Footer
 %footer.footer
   .container
