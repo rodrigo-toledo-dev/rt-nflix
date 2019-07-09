@@ -101,62 +101,22 @@
     .row
       .col-lg-12.text-center
         %h2.section-heading.text-uppercase Mais votados
-        %h3.section-subheading.text-muted As sugestões que tem melhores votos pelos usuários
+        %h3.section-subheading.text-muted Os que estão realmente em alta pelos usuários!
     .row
-      .col-sm-4
-        .team-member
-          = image_tag "team/1.jpg", class: "mx-auto rounded-circle"
-          %h4 Kay Garland
-          %p.text-muted Lead Designer
-          %ul.list-inline.social-buttons
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-twitter
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-facebook-f
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-linkedin-in
-      .col-sm-4
-        .team-member
-          = image_tag "team/2.jpg", class: "mx-auto rounded-circle"
-          %h4 Larry Parker
-          %p.text-muted Lead Marketer
-          %ul.list-inline.social-buttons
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-twitter
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-facebook-f
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-linkedin-in
-      .col-sm-4
-        .team-member
-          = image_tag "team/3.jpg", class: "mx-auto rounded-circle"
-          %h4 Diana Pertersen
-          %p.text-muted Lead Developer
-          %ul.list-inline.social-buttons
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-twitter
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-facebook-f
-            %li.list-inline-item
-              %a{href: "#"}
-                %i.fab.fa-linkedin-in
-    .row
-      .col-lg-8.mx-auto.text-center
-        %p.large.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+      - @top_rated_movies.each do |movie|
+        .col-sm-3
+          .team-member
+            %img.mx-auto.rounded-circle{src: "#{poster_image_url(movie.poster_path)}"}/
+            %h5{"data-toggle" => "tooltip", "title" => "#{movie.title}"}= truncate(movie.title, length: 20)
+            %p.text-muted
+              Média de votos
+              ="#{movie.vote_average} (total: #{movie.vote_count})"
 / Footer
 %footer.footer
   .container
     .row.align-items-center
       .col-md-12
-        %span.copyright Copyright © Jera Flix 2019
+        %span.copyright Copyright © RT NFlix 2019
 
 / Portfolio Modals
 

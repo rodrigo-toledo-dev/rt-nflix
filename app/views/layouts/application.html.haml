@@ -6,7 +6,7 @@
     %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}/
     %meta{content: "", name: "description"}/
     %meta{content: "", name: "author"}/
-    %title Jera Flix
+    %title RT NFlix
     / Bootstrap core CSS
     = csrf_meta_tags
     = csp_meta_tag
@@ -22,7 +22,7 @@
     / Navigation
     %nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
       .container
-        %a.navbar-brand.js-scroll-trigger{href: "#page-top"} Jera Flix
+        %a.navbar-brand.js-scroll-trigger{href: "#page-top"} RT NFlix
         %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarResponsive", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarResponsive", "data-toggle" => "collapse", type: "button"}
           Menu
           %i.fas.fa-bars
@@ -35,6 +35,8 @@
               %a.nav-link.js-scroll-trigger{href: "#services"} Categorias
             %li.nav-item
               %a.nav-link.js-scroll-trigger{href: "#about"} Lançamentos
+            %li.nav-item
+              %a.nav-link.js-scroll-trigger{href: "#team"} Mais votados
             %li.nav-item
               %a.nav-link.js-scroll-trigger{href: "#contact"} Meus dados
             %li.nav-item
